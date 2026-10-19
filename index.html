@@ -1,0 +1,1246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexora – Team Project & Workflow Organization</title>
+    <meta name="description" content="Nexora helps modern teams organize projects, track daily tasks, and coordinate workflows in one clear workspace." />
+    
+    <!-- OpenGraph Social Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Nexora – Team Project & Workflow Organization" />
+    <meta property="og:description" content="Nexora helps modern teams organize projects, track daily tasks, and coordinate workflows in one clear workspace." />
+    <meta property="og:site_name" content="Nexora" />
+    
+    <!-- Twitter Social Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Nexora – Team Project & Workflow Organization" />
+    <meta name="twitter:description" content="Nexora helps modern teams organize projects, track daily tasks, and coordinate workflows in one clear workspace." />
+    
+    <!-- Theme & Favicon -->
+    <meta name="theme-color" content="#0F766E" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Nexora",
+      "applicationCategory": "ProjectManagementApplication",
+      "operatingSystem": "All",
+      "description": "Nexora helps modern teams organize projects, track daily tasks, and coordinate workflows in one clear workspace.",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free Plan",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro Plan",
+          "price": "12",
+          "priceCurrency": "USD"
+        }
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/src/index.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-teal-700 focus:text-white focus:rounded-md focus:shadow-md">
+      Skip to main content
+    </a>
+
+    <!-- Sticky Navigation (Top Bar Contract: 1-line brand mark, 4 nav links, 1 primary action) -->
+    <header id="site-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-xs border-b border-slate-200 transition-all">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between gap-8">
+        
+        <!-- Zone 1: Brand Wordmark -->
+        <a href="./index.html" class="flex items-center gap-2.5 text-slate-900 font-bold text-lg tracking-tight whitespace-nowrap shrink-0 hover:text-teal-800 transition-colors">
+          <svg class="w-7 h-7 shrink-0 text-teal-700" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="32" height="32" rx="6" fill="currentColor"/>
+            <path d="M8 24V8h3.8l8.4 11.2V8h3.8v16h-3.8L11.8 12.8V24H8z" fill="#FFFFFF"/>
+          </svg>
+          <span>Nexora</span>
+        </a>
+
+        <!-- Zone 2: Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600" aria-label="Main Navigation">
+          <a href="#features" class="hover:text-slate-900 transition-colors whitespace-nowrap">Features</a>
+          <a href="#interface" class="hover:text-slate-900 transition-colors whitespace-nowrap">Workspace</a>
+          <a href="#pricing" class="hover:text-slate-900 transition-colors whitespace-nowrap">Pricing</a>
+          <a href="#faq" class="hover:text-slate-900 transition-colors whitespace-nowrap">FAQ</a>
+        </nav>
+
+        <!-- Zone 3: Primary Action & Mobile Menu Toggle -->
+        <div class="flex items-center gap-3 shrink-0">
+          <button type="button" class="btn-primary" data-action-trigger data-plan="free" data-title="Create your free Nexora workspace">
+            Start for free
+          </button>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button 
+            type="button" 
+            id="mobile-menu-toggle"
+            class="md:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-md transition-colors"
+            aria-expanded="false" 
+            aria-controls="mobile-menu" 
+            aria-label="Toggle navigation menu"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Accessible Mobile Navigation Overlay -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-white flex flex-col p-6" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+      <div class="flex items-center justify-between pb-6 border-b border-slate-200">
+        <a href="./index.html" class="flex items-center gap-2 text-slate-900 font-bold text-lg">
+          <svg class="w-6 h-6 text-teal-700" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="32" height="32" rx="6" fill="currentColor"/>
+            <path d="M8 24V8h3.8l8.4 11.2V8h3.8v16h-3.8L11.8 12.8V24H8z" fill="#FFFFFF"/>
+          </svg>
+          <span>Nexora</span>
+        </a>
+        <button 
+          type="button" 
+          id="mobile-menu-close" 
+          class="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-md"
+          aria-label="Close navigation menu"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-4 py-8 text-base font-medium text-slate-700" aria-label="Mobile Menu Links">
+        <a href="#features" class="mobile-nav-link py-2 hover:text-teal-700 transition-colors">Features</a>
+        <a href="#interface" class="mobile-nav-link py-2 hover:text-teal-700 transition-colors">Workspace Preview</a>
+        <a href="#pricing" class="mobile-nav-link py-2 hover:text-teal-700 transition-colors">Pricing</a>
+        <a href="#faq" class="mobile-nav-link py-2 hover:text-teal-700 transition-colors">FAQ</a>
+        <a href="./privacy.html" class="mobile-nav-link py-2 text-slate-500 hover:text-teal-700">Privacy Policy</a>
+        <a href="./terms.html" class="mobile-nav-link py-2 text-slate-500 hover:text-teal-700">Terms of Service</a>
+      </nav>
+
+      <div class="mt-auto pt-6 border-t border-slate-200">
+        <button type="button" class="btn-primary w-full text-center" data-action-trigger data-plan="free" data-title="Create your free Nexora workspace">
+          Start for free
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Content Landmark -->
+    <main id="main-content" class="flex-1">
+
+      <!-- ================================================================== -->
+      <!-- SECTION: Hero Section with HTML/CSS Workspace Preview              -->
+      <!-- ================================================================== -->
+      <section id="hero" class="py-14 md:py-22 border-b border-slate-200/80 bg-gradient-to-b from-white via-slate-50 to-slate-100/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mx-auto text-center mb-12">
+            
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight text-balance">
+              Coordinate projects, tasks, and team workflows in one clear workspace.
+            </h1>
+            
+            <p class="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed text-balance">
+              Nexora gives cross-functional teams structured milestones, Kanban boards, and automated handoffs without spreadsheet chaos or bloated toolkits.
+            </p>
+
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <button 
+                type="button" 
+                id="hero-cta-btn"
+                class="btn-primary w-full sm:w-auto px-6 py-3 text-base shadow-xs" 
+                data-action-trigger 
+                data-plan="free" 
+                data-title="Create your free Nexora workspace"
+              >
+                Start for free
+              </button>
+              
+              <a href="#features" class="btn-secondary w-full sm:w-auto px-6 py-3 text-base">
+                Explore features
+              </a>
+            </div>
+
+            <!-- Zero-Pill Unboxed Trust Metadata -->
+            <div class="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-slate-500 font-medium">
+              <span>Free for teams up to 5 members</span>
+              <span aria-hidden="true">·</span>
+              <span>No credit card required</span>
+              <span aria-hidden="true">·</span>
+              <span>Setup in under 2 minutes</span>
+            </div>
+          </div>
+
+          <!-- Custom HTML/CSS Product Interface Preview (Authentic Interactive Component) -->
+          <div class="max-w-5xl mx-auto card-base shadow-sm overflow-hidden bg-white border border-slate-300">
+            <!-- Window Title Bar -->
+            <div class="bg-slate-100 border-b border-slate-200 px-4 py-3 flex items-center justify-between gap-4">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-slate-300 inline-block" aria-hidden="true"></span>
+                <span class="w-3 h-3 rounded-full bg-slate-300 inline-block" aria-hidden="true"></span>
+                <span class="w-3 h-3 rounded-full bg-slate-300 inline-block" aria-hidden="true"></span>
+                <span class="ml-2 text-xs font-semibold text-slate-700 tracking-wide">Nexora Workspace — Release 2.4 Sprint</span>
+              </div>
+              
+              <!-- Tab View Controls -->
+              <div class="flex items-center gap-1 bg-slate-200/80 p-0.5 rounded-md" role="tablist" aria-label="Product preview views">
+                <button 
+                  type="button" 
+                  id="preview-tab-btn-board"
+                  class="preview-tab-btn px-3 py-1 text-xs font-medium rounded-sm bg-white text-slate-900 shadow-xs transition-colors" 
+                  role="tab" 
+                  aria-selected="true" 
+                  tabindex="0"
+                  aria-controls="preview-panel-board"
+                  data-view="board"
+                >
+                  Board View
+                </button>
+                <button 
+                  type="button" 
+                  id="preview-tab-btn-tasks"
+                  class="preview-tab-btn px-3 py-1 text-xs font-medium rounded-sm text-slate-600 hover:text-slate-900 transition-colors" 
+                  role="tab" 
+                  aria-selected="false" 
+                  tabindex="-1"
+                  aria-controls="preview-panel-tasks"
+                  data-view="tasks"
+                >
+                  Task Checklist
+                </button>
+                <button 
+                  type="button" 
+                  id="preview-tab-btn-automation"
+                  class="preview-tab-btn px-3 py-1 text-xs font-medium rounded-sm text-slate-600 hover:text-slate-900 transition-colors" 
+                  role="tab" 
+                  aria-selected="false" 
+                  tabindex="-1"
+                  aria-controls="preview-panel-automation"
+                  data-view="automation"
+                >
+                  Workflows
+                </button>
+              </div>
+            </div>
+
+            <!-- Workspace Sub-bar with Live Milestone Progress -->
+            <div class="bg-slate-50 border-b border-slate-200 px-4 py-2.5 flex flex-wrap items-center justify-between gap-4 text-xs">
+              <div class="flex items-center gap-3">
+                <span class="font-semibold text-slate-700">Milestone Progress:</span>
+                <div class="w-36 bg-slate-200 rounded-sm h-2 overflow-hidden" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">
+                  <div id="preview-progress-bar" class="bg-teal-600 h-full transition-all duration-300" style="width: 66%;"></div>
+                </div>
+                <span id="preview-progress-text" class="text-slate-500 font-tabular font-medium">4 of 6 deliverables completed (66%)</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span class="text-slate-500">Collaborators:</span>
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-teal-100 text-teal-800 font-semibold text-[11px]" title="Alex Rivera">AR</span>
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-blue-100 text-blue-800 font-semibold text-[11px]" title="Maya Chen">MC</span>
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-amber-100 text-amber-800 font-semibold text-[11px]" title="Samir Patel">SP</span>
+              </div>
+            </div>
+
+            <!-- Interactive View Panel 1: Kanban Board View -->
+            <div id="preview-panel-board" class="preview-view-panel p-4 overflow-x-auto" role="tabpanel" tabindex="0" aria-labelledby="preview-tab-btn-board">
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 min-w-[700px]">
+                
+                <!-- Column 1: Planned -->
+                <div class="bg-slate-50 border border-slate-200 rounded-md p-3">
+                  <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-200">
+                    <span class="text-xs font-semibold text-slate-700 uppercase tracking-wider">Planned (2)</span>
+                    <span class="text-[11px] text-slate-400">Queue</span>
+                  </div>
+                  <div class="space-y-2.5">
+                    <div class="bg-white p-3 rounded-md border border-slate-200 shadow-2xs">
+                      <div class="text-xs font-semibold text-slate-900">Define API pagination contracts</div>
+                      <div class="mt-2 flex items-center justify-between text-[11px] text-slate-500">
+                        <span class="text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded-sm font-medium">Architecture</span>
+                        <span>Due Oct 18</span>
+                      </div>
+                    </div>
+                    <div class="bg-white p-3 rounded-md border border-slate-200 shadow-2xs">
+                      <div class="text-xs font-semibold text-slate-900">Workspace export schemas</div>
+                      <div class="mt-2 flex items-center justify-between text-[11px] text-slate-500">
+                        <span class="text-slate-700 bg-slate-100 px-1.5 py-0.5 rounded-sm font-medium">Data</span>
+                        <span>Due Oct 22</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Column 2: In Progress -->
+                <div class="bg-slate-50 border border-slate-200 rounded-md p-3">
+                  <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-200">
+                    <span class="text-xs font-semibold text-teal-800 uppercase tracking-wider">In Progress (2)</span>
+                    <span class="text-[11px] text-teal-600 font-medium">Active</span>
+                  </div>
+                  <div class="space-y-2.5">
+                    <div class="bg-white p-3 rounded-md border border-teal-200 shadow-2xs">
+                      <div class="text-xs font-semibold text-slate-900">Tenant isolation guard verification</div>
+                      <div class="mt-1 text-[11px] text-slate-500">Enforcing row-level authorization barriers.</div>
+                      <div class="mt-2 flex items-center justify-between text-[11px]">
+                        <span class="text-teal-700 bg-teal-50 px-1.5 py-0.5 rounded-sm font-medium">Security</span>
+                        <span class="text-slate-500">Owner: AR</span>
+                      </div>
+                    </div>
+                    <div class="bg-white p-3 rounded-md border border-slate-200 shadow-2xs">
+                      <div class="text-xs font-semibold text-slate-900">Webhook retry backoff logic</div>
+                      <div class="mt-2 flex items-center justify-between text-[11px] text-slate-500">
+                        <span class="text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded-sm font-medium">Integrations</span>
+                        <span>Owner: MC</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Column 3: Review -->
+                <div class="bg-slate-50 border border-slate-200 rounded-md p-3">
+                  <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-200">
+                    <span class="text-xs font-semibold text-slate-700 uppercase tracking-wider">Review (1)</span>
+                    <span class="text-[11px] text-slate-400">QA / Peer</span>
+                  </div>
+                  <div class="space-y-2.5">
+                    <div class="bg-white p-3 rounded-md border border-slate-200 shadow-2xs">
+                      <div class="text-xs font-semibold text-slate-900">Keyboard navigation audit report</div>
+                      <div class="mt-2 flex items-center justify-between text-[11px] text-slate-500">
+                        <span class="text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded-sm font-medium">A11y</span>
+                        <span>Pending signoff</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Column 4: Completed -->
+                <div class="bg-slate-50 border border-slate-200 rounded-md p-3">
+                  <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-200">
+                    <span class="text-xs font-semibold text-slate-700 uppercase tracking-wider">Completed (1)</span>
+                    <span class="text-[11px] text-emerald-600 font-medium">Verified</span>
+                  </div>
+                  <div class="space-y-2.5">
+                    <div class="bg-white p-3 rounded-md border border-slate-200 opacity-90 shadow-2xs">
+                      <div class="text-xs font-semibold text-slate-700 line-through">Database read-replica configuration</div>
+                      <div class="mt-2 flex items-center justify-between text-[11px] text-slate-400">
+                        <span>Infrastructure</span>
+                        <span>Shipped</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Interactive View Panel 2: Interactive Task Checklist -->
+            <div id="preview-panel-tasks" class="preview-view-panel p-4 hidden" role="tabpanel" tabindex="0" aria-labelledby="preview-tab-btn-tasks">
+              <div class="mb-3 flex items-center justify-between text-xs">
+                <span class="text-slate-600">Click checkboxes to test real-time milestone progress recalculation:</span>
+                <div class="flex items-center gap-1">
+                  <button type="button" class="preview-filter-btn px-2.5 py-1 rounded-sm bg-slate-200 text-slate-900 font-medium" data-filter="all">All</button>
+                  <button type="button" class="preview-filter-btn px-2.5 py-1 rounded-sm bg-slate-100 text-slate-600 font-medium hover:text-slate-900" data-filter="core">Core</button>
+                  <button type="button" class="preview-filter-btn px-2.5 py-1 rounded-sm bg-slate-100 text-slate-600 font-medium hover:text-slate-900" data-filter="ops">Ops</button>
+                </div>
+              </div>
+
+              <div class="divide-y divide-slate-100 border border-slate-200 rounded-md bg-white text-xs">
+                <!-- Task 1 -->
+                <div class="preview-task-row p-3 flex items-center justify-between gap-4" data-category="core">
+                  <label class="flex items-center gap-3 cursor-pointer select-none">
+                    <input type="checkbox" checked class="preview-task-checkbox w-4 h-4 text-teal-600 rounded-xs border-slate-300 focus:ring-teal-600" />
+                    <span class="task-title-text font-medium text-slate-800">Establish workspace RBAC permissions matrix</span>
+                  </label>
+                  <span class="text-slate-500 font-tabular">Core / Alex R.</span>
+                </div>
+
+                <!-- Task 2 -->
+                <div class="preview-task-row p-3 flex items-center justify-between gap-4" data-category="core">
+                  <label class="flex items-center gap-3 cursor-pointer select-none">
+                    <input type="checkbox" checked class="preview-task-checkbox w-4 h-4 text-teal-600 rounded-xs border-slate-300 focus:ring-teal-600" />
+                    <span class="task-title-text font-medium text-slate-800">Implement webhook dispatch event logging</span>
+                  </label>
+                  <span class="text-slate-500 font-tabular">Core / Maya C.</span>
+                </div>
+
+                <!-- Task 3 -->
+                <div class="preview-task-row p-3 flex items-center justify-between gap-4" data-category="core">
+                  <label class="flex items-center gap-3 cursor-pointer select-none">
+                    <input type="checkbox" checked class="preview-task-checkbox w-4 h-4 text-teal-600 rounded-xs border-slate-300 focus:ring-teal-600" />
+                    <span class="task-title-text font-medium text-slate-800">Create client-side input sanitizer utility</span>
+                  </label>
+                  <span class="text-slate-500 font-tabular">Core / Samir P.</span>
+                </div>
+
+                <!-- Task 4 -->
+                <div class="preview-task-row p-3 flex items-center justify-between gap-4" data-category="ops">
+                  <label class="flex items-center gap-3 cursor-pointer select-none">
+                    <input type="checkbox" checked class="preview-task-checkbox w-4 h-4 text-teal-600 rounded-xs border-slate-300 focus:ring-teal-600" />
+                    <span class="task-title-text font-medium text-slate-800">Configure multi-region read-only replication</span>
+                  </label>
+                  <span class="text-slate-500 font-tabular">Ops / DevOps</span>
+                </div>
+
+                <!-- Task 5 -->
+                <div class="preview-task-row p-3 flex items-center justify-between gap-4" data-category="core">
+                  <label class="flex items-center gap-3 cursor-pointer select-none">
+                    <input type="checkbox" class="preview-task-checkbox w-4 h-4 text-teal-600 rounded-xs border-slate-300 focus:ring-teal-600" />
+                    <span class="task-title-text font-medium text-slate-800">Run WCAG 2.1 AA keyboard navigation check</span>
+                  </label>
+                  <span class="text-slate-500 font-tabular">Core / QA</span>
+                </div>
+
+                <!-- Task 6 -->
+                <div class="preview-task-row p-3 flex items-center justify-between gap-4" data-category="ops">
+                  <label class="flex items-center gap-3 cursor-pointer select-none">
+                    <input type="checkbox" class="preview-task-checkbox w-4 h-4 text-teal-600 rounded-xs border-slate-300 focus:ring-teal-600" />
+                    <span class="task-title-text font-medium text-slate-800">Deploy staging release candidate for acceptance test</span>
+                  </label>
+                  <span class="text-slate-500 font-tabular">Ops / Lead</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive View Panel 3: Workflows View -->
+            <div id="preview-panel-automation" class="preview-view-panel p-4 hidden" role="tabpanel" tabindex="0" aria-labelledby="preview-tab-btn-automation">
+              <div class="space-y-3">
+                <div class="p-3 bg-slate-50 border border-slate-200 rounded-md">
+                  <div class="flex items-center justify-between text-xs font-semibold text-slate-800 mb-1">
+                    <span>Automation Rule: Code Review Hand-off</span>
+                    <span class="text-teal-700 bg-teal-50 px-2 py-0.5 rounded-sm font-medium">Active</span>
+                  </div>
+                  <p class="text-xs text-slate-600">
+                    <strong>Trigger:</strong> When PR status updates to "Approved" <br />
+                    <strong>Action:</strong> Move task to "Ready for QA" and notify designated release engineer.
+                  </p>
+                </div>
+
+                <div class="p-3 bg-slate-50 border border-slate-200 rounded-md">
+                  <div class="flex items-center justify-between text-xs font-semibold text-slate-800 mb-1">
+                    <span>Automation Rule: Milestone Completion Summary</span>
+                    <span class="text-teal-700 bg-teal-50 px-2 py-0.5 rounded-sm font-medium">Active</span>
+                  </div>
+                  <p class="text-xs text-slate-600">
+                    <strong>Trigger:</strong> When 100% of sprint checklist items are marked complete <br />
+                    <strong>Action:</strong> Archive milestone, export audit log snapshot, and broadcast delivery report.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- SECTION: Core Features (6 Cards, Accessible SVGs, No Emojis)       -->
+      <!-- ================================================================== -->
+      <section id="features" class="py-16 md:py-24 border-b border-slate-200 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="max-w-2xl mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+              Engineered for focus and operational velocity
+            </h2>
+            <p class="mt-3 text-slate-600 text-base leading-relaxed">
+              Six core architectural capabilities designed to eliminate fragmented spreadsheets, lost context, and disjointed team communication.
+            </p>
+          </div>
+
+          <!-- Feature Grid (6 Cards) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Feature Card 1 -->
+            <div class="card-base p-6 flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-md bg-teal-50 text-teal-700 flex items-center justify-center mb-4">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-2">Project Organization</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  Establish structured workspace hierarchies with nested milestones, initiative folders, and dedicated project spaces that keep priorities distinct.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium">
+                Multi-level folder hierarchy & custom tags
+              </div>
+            </div>
+
+            <!-- Feature Card 2 -->
+            <div class="card-base p-6 flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-md bg-teal-50 text-teal-700 flex items-center justify-center mb-4">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-2">Task Tracking</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  Track granular deliverables with subtask checklists, dependency flags, assignees, and strict target due dates to prevent slipping timelines.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium">
+                Dependency detection & blocker alerts
+              </div>
+            </div>
+
+            <!-- Feature Card 3 -->
+            <div class="card-base p-6 flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-md bg-teal-50 text-teal-700 flex items-center justify-center mb-4">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-2">Team Collaboration</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  Maintain conversation context directly on task cards. Comment threads, file attachments, and activity logs ensure decision history is never lost.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium">
+                Contextual threads & audit-ready activity log
+              </div>
+            </div>
+
+            <!-- Feature Card 4 -->
+            <div class="card-base p-6 flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-md bg-teal-50 text-teal-700 flex items-center justify-center mb-4">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-2">Workflow Automation</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  Configure trigger-action rules that advance task states when peer reviews finish, notify designated assignees, and update dependent project lanes.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium">
+                No-code triggers & webhook integrations
+              </div>
+            </div>
+
+            <!-- Feature Card 5 -->
+            <div class="card-base p-6 flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-md bg-teal-50 text-teal-700 flex items-center justify-center mb-4">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-2">Progress Visibility</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  Surface milestone completion percentages, velocity trends, and overdue warnings automatically calculated from active deliverables.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium">
+                Live burndown calculation & status rollups
+              </div>
+            </div>
+
+            <!-- Feature Card 6 -->
+            <div class="card-base p-6 flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-md bg-teal-50 text-teal-700 flex items-center justify-center mb-4">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-2">Workspace Customization</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  Tailor views to your team's workflow style. Switch seamlessly between Kanban boards, tabular spreadsheets, and milestone roadmap timelines.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium">
+                Custom fields, saved filters & role views
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- SECTION: Interactive Workspace Walkthrough / Lifecycle (#interface)-->
+      <!-- ================================================================== -->
+      <section id="interface" class="py-16 md:py-24 border-b border-slate-200 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="max-w-2xl mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+              Structured execution across the project lifecycle
+            </h2>
+            <p class="mt-3 text-slate-600 text-base leading-relaxed">
+              How Nexora maintains delivery discipline from initial project definition to final deployment.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Stage 1 -->
+            <div class="border-t-2 border-teal-700 pt-5">
+              <span class="text-xs font-bold text-teal-800 uppercase tracking-wider">Phase 01</span>
+              <h3 class="text-lg font-semibold text-slate-900 mt-2 mb-2">Scope & Deconstruct</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Break major business initiatives into distinct milestones. Define deliverables, required resources, and acceptance criteria in one structured place.
+              </p>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="border-t-2 border-slate-400 pt-5">
+              <span class="text-xs font-bold text-slate-600 uppercase tracking-wider">Phase 02</span>
+              <h3 class="text-lg font-semibold text-slate-900 mt-2 mb-2">Coordinate & Hand off</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Assign clear single ownership to every task card. Use automated notifications to alert design, engineering, or QA as soon as blockers resolve.
+              </p>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="border-t-2 border-slate-400 pt-5">
+              <span class="text-xs font-bold text-slate-600 uppercase tracking-wider">Phase 03</span>
+              <h3 class="text-lg font-semibold text-slate-900 mt-2 mb-2">Verify & Release</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Track checklist sign-offs and peer approvals before marking items done. Keep an accurate, immutable audit log of who verified what and when.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- SECTION: Transparent Pricing (Working Billing Switch, 3 Cards)    -->
+      <!-- ================================================================== -->
+      <section id="pricing" class="py-16 md:py-24 border-b border-slate-200 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="max-w-3xl mx-auto text-center mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+              Predictable, transparent pricing
+            </h2>
+            <p class="mt-3 text-slate-600 text-base leading-relaxed">
+              Choose the plan that fits your team's size and complexity. Switch cadences or cancel whenever you need.
+            </p>
+
+            <!-- Working Billing Interval Switch -->
+            <div class="mt-8 inline-flex items-center gap-3 p-1.5 bg-slate-100 border border-slate-200 rounded-md">
+              <span id="label-monthly" class="text-xs font-medium text-slate-800 cursor-pointer select-none px-2 py-1">
+                Monthly billing
+              </span>
+
+              <button 
+                type="button" 
+                id="billing-switch" 
+                class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-slate-300 transition-colors duration-200 ease-in-out focus-visible:ring-2 focus-visible:ring-teal-700"
+                role="switch" 
+                aria-checked="false" 
+                aria-label="Toggle between monthly and annual billing"
+              >
+                <span class="switch-handle pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-xs transition duration-200 ease-in-out translate-x-0"></span>
+              </button>
+
+              <span id="label-annual" class="text-xs font-medium text-slate-800 cursor-pointer select-none px-2 py-1 flex items-center gap-1.5">
+                <span>Annual billing</span>
+                <span id="annual-savings-text" class="text-[11px] text-teal-800 bg-teal-50 border border-teal-200 px-1.5 py-0.2 rounded-xs">
+                  Save 16%
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Responsive Pricing Cards Grid (1 Col Mobile, 3 Cols Desktop) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+            
+            <!-- Tier 1: Free -->
+            <div class="card-base pricing-card p-6 lg:p-8 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-bold text-slate-900">Free</h3>
+                  <span class="text-xs text-slate-500 font-medium">Starter</span>
+                </div>
+                <p class="mt-2 text-xs text-slate-600">
+                  Ideal for individual builders and small teams organizing basic projects.
+                </p>
+
+                <div class="mt-6 pb-6 border-b border-slate-200">
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-3xl sm:text-4xl font-bold text-slate-900 font-tabular">$0</span>
+                    <span class="text-xs text-slate-500">/ month</span>
+                  </div>
+                  <div class="mt-1 text-xs text-slate-500">Free forever · No credit card required</div>
+                </div>
+
+                <ul class="mt-6 space-y-3 text-xs text-slate-700" aria-label="Free plan features">
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Up to 5 team members</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>3 active project workspaces</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Kanban and checklist views</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>1 GB file attachment storage</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Community support forum</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-8 pt-6 border-t border-slate-100">
+                <button 
+                  type="button" 
+                  class="btn-secondary w-full"
+                  data-action-trigger 
+                  data-plan="free" 
+                  data-title="Set up your Free workspace"
+                >
+                  Get Started Free
+                </button>
+                <p class="mt-2 text-[11px] text-slate-500 text-center">
+                  Creates your workspace immediately.
+                </p>
+              </div>
+            </div>
+
+            <!-- Tier 2: Pro (Restrained Visual Distinction: subtle accent border and unboxed recommendation tag) -->
+            <div class="card-base pricing-card p-6 lg:p-8 flex flex-col justify-between border-2 border-teal-600 bg-teal-50/15 relative">
+              <div>
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-bold text-slate-900">Pro</h3>
+                  <span class="text-xs font-semibold text-teal-800 uppercase tracking-wide">
+                    Recommended
+                  </span>
+                </div>
+                <p class="mt-2 text-xs text-slate-600">
+                  For fast-moving cross-functional teams delivering scheduled customer milestones.
+                </p>
+
+                <div class="mt-6 pb-6 border-b border-slate-200">
+                  <div class="flex items-baseline gap-1">
+                    <span id="price-pro" class="text-3xl sm:text-4xl font-bold text-slate-900 font-tabular">$12</span>
+                    <span id="interval-pro" class="text-xs text-slate-500">/ user / month</span>
+                  </div>
+                  <div id="note-pro" class="mt-1 text-xs text-slate-600 font-medium">
+                    Billed monthly at $144/year per user
+                  </div>
+                </div>
+
+                <ul class="mt-6 space-y-3 text-xs text-slate-700" aria-label="Pro plan features">
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Everything in Free, plus:</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Unlimited active projects & milestones</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Automated workflow handoff rules</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>50 GB secure workspace file storage</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>GitHub, Slack, and webhook integrations</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Priority email support (&lt; 4 hr response)</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-8 pt-6 border-t border-teal-200/60">
+                <button 
+                  type="button" 
+                  class="btn-primary w-full"
+                  data-action-trigger 
+                  data-plan="pro" 
+                  data-title="Start your 14-day Pro trial"
+                >
+                  Start 14-Day Pro Trial
+                </button>
+                <p class="mt-2 text-[11px] text-slate-500 text-center">
+                  Full Pro access. No credit card required.
+                </p>
+              </div>
+            </div>
+
+            <!-- Tier 3: Team -->
+            <div class="card-base pricing-card p-6 lg:p-8 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-bold text-slate-900">Team</h3>
+                  <span class="text-xs text-slate-500 font-medium">Enterprise</span>
+                </div>
+                <p class="mt-2 text-xs text-slate-600">
+                  For growing organizations requiring security governance, compliance, and custom setup.
+                </p>
+
+                <div class="mt-6 pb-6 border-b border-slate-200">
+                  <div class="flex items-baseline gap-1">
+                    <span id="price-team" class="text-3xl sm:text-4xl font-bold text-slate-900 font-tabular">$24</span>
+                    <span id="interval-team" class="text-xs text-slate-500">/ user / month</span>
+                  </div>
+                  <div id="note-team" class="mt-1 text-xs text-slate-600 font-medium">
+                    Billed monthly at $288/year per user
+                  </div>
+                </div>
+
+                <ul class="mt-6 space-y-3 text-xs text-slate-700" aria-label="Team plan features">
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Everything in Pro, plus:</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>SAML 2.0 Single Sign-On (SSO) & SCIM sync</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Granular audit logging & security export</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Unlimited file storage capacity</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Dedicated Technical Account Manager</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Custom invoice & procurement billing</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-8 pt-6 border-t border-slate-100">
+                <button 
+                  type="button" 
+                  class="btn-secondary w-full"
+                  data-action-trigger 
+                  data-plan="team" 
+                  data-title="Contact sales for Team onboarding"
+                >
+                  Contact Sales
+                </button>
+                <p class="mt-2 text-[11px] text-slate-500 text-center">
+                  Custom contract & security questionnaire.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- SECTION: FAQ Accordion (6 Questions, Semantic ARIA, Smooth Motion) -->
+      <!-- ================================================================== -->
+      <section id="faq" class="py-16 md:py-24 border-b border-slate-200 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="mb-12 text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+              Frequently asked questions
+            </h2>
+            <p class="mt-3 text-slate-600 text-base">
+              Honest details regarding trial behavior, billing mechanics, data portability, and security.
+            </p>
+          </div>
+
+          <div class="space-y-3" role="region" aria-label="FAQ Accordion">
+            
+            <!-- FAQ Item 1 -->
+            <div class="faq-item card-base overflow-hidden">
+              <button 
+                type="button" 
+                class="faq-trigger w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-semibold text-slate-900 text-sm hover:text-teal-800 transition-colors"
+                id="faq-btn-1"
+                aria-expanded="false" 
+                aria-controls="faq-ans-1"
+              >
+                <span>How does the 14-day Pro trial work?</span>
+                <svg class="faq-chevron w-4 h-4 text-slate-500 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="faq-ans-1" class="faq-content accordion-content" role="region" aria-labelledby="faq-btn-1">
+                <div class="accordion-inner px-6 pb-4 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                  When you initiate a Pro trial, your workspace unlocks all Pro features for 14 days without requiring credit card details. At the conclusion of the 14 days, you can choose to enter payment details to continue Pro, or your account automatically shifts to the Free plan with zero loss of task history or project records.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item card-base overflow-hidden">
+              <button 
+                type="button" 
+                class="faq-trigger w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-semibold text-slate-900 text-sm hover:text-teal-800 transition-colors"
+                id="faq-btn-2"
+                aria-expanded="false" 
+                aria-controls="faq-ans-2"
+              >
+                <span>Can I switch between monthly and annual billing at any time?</span>
+                <svg class="faq-chevron w-4 h-4 text-slate-500 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="faq-ans-2" class="faq-content accordion-content" role="region" aria-labelledby="faq-btn-2">
+                <div class="accordion-inner px-6 pb-4 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                  Yes. You can toggle your billing cadence directly in Workspace Billing Settings. When switching from monthly to annual, any unused portion of your current monthly cycle is prorated and credited immediately against your annual subscription invoice.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item card-base overflow-hidden">
+              <button 
+                type="button" 
+                class="faq-trigger w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-semibold text-slate-900 text-sm hover:text-teal-800 transition-colors"
+                id="faq-btn-3"
+                aria-expanded="false" 
+                aria-controls="faq-ans-3"
+              >
+                <span>What happens to our project data if our team downgrades to Free?</span>
+                <svg class="faq-chevron w-4 h-4 text-slate-500 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="faq-ans-3" class="faq-content accordion-content" role="region" aria-labelledby="faq-btn-3">
+                <div class="accordion-inner px-6 pb-4 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                  Your project data remains fully intact and exportable. If your workspace exceeds the Free tier allowance (such as having more than 3 active projects), surplus projects transition to read-only status until you archive projects or renew your subscription. We never delete customer data upon downgrade.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item card-base overflow-hidden">
+              <button 
+                type="button" 
+                class="faq-trigger w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-semibold text-slate-900 text-sm hover:text-teal-800 transition-colors"
+                id="faq-btn-4"
+                aria-expanded="false" 
+                aria-controls="faq-ans-4"
+              >
+                <span>Does Nexora support integrations with our existing tools?</span>
+                <svg class="faq-chevron w-4 h-4 text-slate-500 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="faq-ans-4" class="faq-content accordion-content" role="region" aria-labelledby="faq-btn-4">
+                <div class="accordion-inner px-6 pb-4 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                  Nexora provides webhook endpoints and documented REST APIs. First-party integrations with GitHub, GitLab, and Slack allow bi-directional syncing of pull request statuses, issue branches, and milestone channel notifications.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="faq-item card-base overflow-hidden">
+              <button 
+                type="button" 
+                class="faq-trigger w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-semibold text-slate-900 text-sm hover:text-teal-800 transition-colors"
+                id="faq-btn-5"
+                aria-expanded="false" 
+                aria-controls="faq-ans-5"
+              >
+                <span>How does Nexora handle workspace data privacy and security?</span>
+                <svg class="faq-chevron w-4 h-4 text-slate-500 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="faq-ans-5" class="faq-content accordion-content" role="region" aria-labelledby="faq-btn-5">
+                <div class="accordion-inner px-6 pb-4 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                  Data in transit is secured with TLS 1.3, and data at rest is encrypted using AES-256 keys. Workspaces are logically isolated with row-level permission boundaries. Team plan subscribers can enforce SAML 2.0 Single Sign-On and download immutable audit logs for compliance audits.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ Item 6 -->
+            <div class="faq-item card-base overflow-hidden">
+              <button 
+                type="button" 
+                class="faq-trigger w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-semibold text-slate-900 text-sm hover:text-teal-800 transition-colors"
+                id="faq-btn-6"
+                aria-expanded="false" 
+                aria-controls="faq-ans-6"
+              >
+                <span>Can external clients or contractors access specific project boards?</span>
+                <svg class="faq-chevron w-4 h-4 text-slate-500 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="faq-ans-6" class="faq-content accordion-content" role="region" aria-labelledby="faq-btn-6">
+                <div class="accordion-inner px-6 pb-4 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                  Yes. You can invite external guests with scoped read-only or comment-only permissions to specific project boards without consuming paid team seats. Guests cannot browse private team workspaces or access other company initiatives.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- SECTION: Final Conversion Call-to-Action                           -->
+      <!-- ================================================================== -->
+      <section id="final-cta" class="py-16 md:py-20 border-b border-slate-200 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 text-balance">
+            Bring clarity and momentum to your team's execution
+          </h2>
+          <p class="mt-4 text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Start organizing initiatives with our Free tier today or explore Pro risk-free for 14 days. No credit card required.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button 
+              type="button" 
+              class="btn-primary w-full sm:w-auto px-6 py-3 text-base shadow-xs" 
+              data-action-trigger 
+              data-plan="free" 
+              data-title="Create your free Nexora workspace"
+            >
+              Start for free
+            </button>
+            <a href="#faq" class="btn-secondary w-full sm:w-auto px-6 py-3 text-base">
+              Review FAQ & details
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ==================================================================== -->
+    <!-- FOOTER: Quiet Semantic Navigation, Legal Disclaimers, Real Links     -->
+    <!-- ==================================================================== -->
+    <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800 text-xs">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-slate-800">
+          
+          <!-- Column 1: Brand & Identity -->
+          <div class="md:col-span-2 pr-6">
+            <a href="./index.html" class="flex items-center gap-2 text-white font-bold text-base tracking-tight mb-3">
+              <svg class="w-5 h-5 text-teal-400" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="32" height="32" rx="6" fill="currentColor"/>
+                <path d="M8 24V8h3.8l8.4 11.2V8h3.8v16h-3.8L11.8 12.8V24H8z" fill="#0F172A"/>
+              </svg>
+              <span>Nexora</span>
+            </a>
+            <p class="text-slate-400 leading-relaxed max-w-sm">
+              Structured project and workflow organization for focused product, engineering, and operations teams.
+            </p>
+            <div class="mt-4 text-[11px] text-slate-500 leading-normal">
+              Notice: Nexora is a student demonstration project created by Satyam Rajput to showcase conversion design and accessibility standards. Sample pricing and feature descriptions are provided for demonstration purposes.
+            </div>
+          </div>
+
+          <!-- Column 2: Navigation Links -->
+          <div>
+            <div class="font-semibold text-white uppercase tracking-wider text-[11px] mb-3">Product</div>
+            <ul class="space-y-2">
+              <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+              <li><a href="#interface" class="hover:text-white transition-colors">Workspace Preview</a></li>
+              <li><a href="#pricing" class="hover:text-white transition-colors">Pricing Plans</a></li>
+              <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Trust & Legal -->
+          <div>
+            <div class="font-semibold text-white uppercase tracking-wider text-[11px] mb-3">Legal & Security</div>
+            <ul class="space-y-2">
+              <li><a href="./privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="./terms.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+              <li><a href="#faq" class="hover:text-white transition-colors">Security Overview</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500">
+          <div>© 2026 Nexora · Maintained by Satyam Rajput (Student Demonstration Project). All rights reserved.</div>
+          <div class="flex items-center gap-4">
+            <a href="./privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+            <span>·</span>
+            <a href="./terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- ==================================================================== -->
+    <!-- INTERACTIVE ACTION MODAL (Signup / Demo Inquiry Dialog)             -->
+    <!-- ==================================================================== -->
+    <div 
+      id="action-modal" 
+      class="hidden fixed inset-0 z-50 overflow-y-auto" 
+      role="dialog" 
+      aria-modal="true" 
+      aria-labelledby="modal-title"
+    >
+      <div id="modal-overlay" class="modal-overlay fixed inset-0 transition-opacity" aria-hidden="true"></div>
+
+      <div class="min-h-screen px-4 text-center flex items-center justify-center p-0">
+        <div class="relative bg-white rounded-lg max-w-md w-full p-6 text-left shadow-xl border border-slate-200 z-10 my-8">
+          
+          <!-- Modal Header -->
+          <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+            <h3 id="modal-title" class="text-lg font-bold text-slate-900">Get started with Nexora</h3>
+            <button 
+              type="button" 
+              id="modal-close-btn" 
+              class="p-1.5 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-md transition-colors"
+              aria-label="Close dialog"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Honest Demo Notice Banner -->
+          <div class="mt-4 p-3 bg-teal-50 border border-teal-200 rounded-md text-xs text-teal-900 leading-normal">
+            <strong>Frontend Demonstration Notice:</strong> This form validates formatting locally in your browser. Real account creation, database persistence, and email dispatch are not enabled in this demonstration.
+          </div>
+
+          <!-- Form Element -->
+          <form id="action-form" class="mt-4 space-y-4" novalidate>
+            <div>
+              <label for="form-email" class="block text-xs font-semibold text-slate-700 mb-1">
+                Work Email <span class="text-rose-600">*</span>
+              </label>
+              <input 
+                type="email" 
+                id="form-email" 
+                name="email" 
+                required
+                placeholder="name@company.com" 
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-md focus:border-teal-600 focus:ring-1 focus:ring-teal-600 outline-hidden"
+                aria-describedby="error-email"
+              />
+              <span id="error-email" class="hidden text-xs text-rose-600 mt-1 block"></span>
+            </div>
+
+            <div>
+              <label for="form-name" class="block text-xs font-semibold text-slate-700 mb-1">
+                Full Name <span class="text-rose-600">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="form-name" 
+                name="name" 
+                required
+                placeholder="Jane Doe" 
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-md focus:border-teal-600 focus:ring-1 focus:ring-teal-600 outline-hidden"
+                aria-describedby="error-name"
+              />
+              <span id="error-name" class="hidden text-xs text-rose-600 mt-1 block"></span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label for="form-plan" class="block text-xs font-semibold text-slate-700 mb-1">
+                  Selected Plan
+                </label>
+                <select 
+                  id="form-plan" 
+                  name="plan" 
+                  class="w-full px-3 py-2 text-sm border border-slate-300 rounded-md bg-white focus:border-teal-600 focus:ring-1 focus:ring-teal-600 outline-hidden"
+                >
+                  <option value="free">Free Starter ($0)</option>
+                  <option value="pro">Pro Trial ($12/user)</option>
+                  <option value="team">Team Enterprise ($24/user)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="form-team-size" class="block text-xs font-semibold text-slate-700 mb-1">
+                  Team Size
+                </label>
+                <select 
+                  id="form-team-size" 
+                  name="teamSize" 
+                  class="w-full px-3 py-2 text-sm border border-slate-300 rounded-md bg-white focus:border-teal-600 focus:ring-1 focus:ring-teal-600 outline-hidden"
+                >
+                  <option value="1-5">1 – 5 members</option>
+                  <option value="6-20">6 – 20 members</option>
+                  <option value="21-50">21 – 50 members</option>
+                  <option value="50+">50+ members</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="pt-1">
+              <label class="flex items-start gap-2.5 cursor-pointer">
+                <input 
+                  type="checkbox" 
+                  id="form-terms" 
+                  name="terms" 
+                  class="w-4 h-4 text-teal-600 rounded-xs border-slate-300 focus:ring-teal-600 mt-0.5"
+                  aria-describedby="error-terms"
+                />
+                <span class="text-xs text-slate-600 leading-normal">
+                  I agree to the <a href="./terms.html" target="_blank" class="text-teal-700 underline">Terms of Service</a> and acknowledge the <a href="./privacy.html" target="_blank" class="text-teal-700 underline">Privacy Policy</a>.
+                </span>
+              </label>
+              <span id="error-terms" class="hidden text-xs text-rose-600 mt-1 block"></span>
+            </div>
+
+            <div class="pt-3">
+              <button type="submit" class="btn-primary w-full py-2.5 text-sm">
+                Validate Form (Frontend Demo)
+              </button>
+            </div>
+          </form>
+
+          <!-- Safe Confirmation State (Toggled on valid submission) -->
+          <div id="form-success-state" class="hidden mt-6 text-center py-4">
+            <div class="w-12 h-12 rounded-full bg-teal-100 text-teal-800 mx-auto flex items-center justify-center mb-3">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h4 class="text-base font-bold text-slate-900">Form Input Validated (Demo Only)</h4>
+            <p class="mt-2 text-xs text-slate-600 leading-relaxed">
+              The inputs for <strong id="success-user-plan" class="text-slate-800"></strong> were validated successfully in your browser for <span id="success-user-email" class="font-medium text-slate-800"></span>. No user account was created, and no data was saved or transmitted to a backend server.
+            </p>
+            <div class="mt-6 flex justify-center">
+              <button type="button" id="modal-reset-btn" class="btn-secondary text-xs">
+                Reset Demo Form
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Application Script -->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "Nexora – Team Project & Workflow Organization",
+  "description": "Nexora helps modern teams organize projects, track daily tasks, and coordinate workflows in one clear workspace.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

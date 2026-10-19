@@ -1,0 +1,311 @@
+{
+  "verified": [
+    {
+      "name": "No horizontal overflow at Desktop 1440x900",
+      "detail": "Width: 1440px, Scroll: 1440px"
+    },
+    {
+      "name": "Hero section (#hero) visible at Desktop 1440x900",
+      "detail": ""
+    },
+    {
+      "name": "Workspace preview section (#interface) visible at Desktop 1440x900",
+      "detail": ""
+    },
+    {
+      "name": "Features section (#features) visible at Desktop 1440x900",
+      "detail": ""
+    },
+    {
+      "name": "Pricing section (#pricing) visible at Desktop 1440x900",
+      "detail": ""
+    },
+    {
+      "name": "FAQ section (#faq) visible at Desktop 1440x900",
+      "detail": ""
+    },
+    {
+      "name": "Final CTA section (#final-cta) visible at Desktop 1440x900",
+      "detail": ""
+    },
+    {
+      "name": "Footer landmark (footer) visible at Desktop 1440x900",
+      "detail": ""
+    },
+    {
+      "name": "Desktop navigation bar configured at Desktop 1440x900",
+      "detail": "Desktop nav links visible, toggle button hidden"
+    },
+    {
+      "name": "Pricing cards layout correct (grid) at Desktop 1440x900",
+      "detail": ""
+    },
+    {
+      "name": "No horizontal overflow at Tablet 768x1024",
+      "detail": "Width: 768px, Scroll: 768px"
+    },
+    {
+      "name": "Hero section (#hero) visible at Tablet 768x1024",
+      "detail": ""
+    },
+    {
+      "name": "Workspace preview section (#interface) visible at Tablet 768x1024",
+      "detail": ""
+    },
+    {
+      "name": "Features section (#features) visible at Tablet 768x1024",
+      "detail": ""
+    },
+    {
+      "name": "Pricing section (#pricing) visible at Tablet 768x1024",
+      "detail": ""
+    },
+    {
+      "name": "FAQ section (#faq) visible at Tablet 768x1024",
+      "detail": ""
+    },
+    {
+      "name": "Final CTA section (#final-cta) visible at Tablet 768x1024",
+      "detail": ""
+    },
+    {
+      "name": "Footer landmark (footer) visible at Tablet 768x1024",
+      "detail": ""
+    },
+    {
+      "name": "Desktop navigation bar configured at Tablet 768x1024",
+      "detail": "Desktop nav links visible, toggle button hidden"
+    },
+    {
+      "name": "Pricing cards layout correct (grid) at Tablet 768x1024",
+      "detail": ""
+    },
+    {
+      "name": "No horizontal overflow at Mobile 375x812",
+      "detail": "Width: 375px, Scroll: 375px"
+    },
+    {
+      "name": "Hero section (#hero) visible at Mobile 375x812",
+      "detail": ""
+    },
+    {
+      "name": "Workspace preview section (#interface) visible at Mobile 375x812",
+      "detail": ""
+    },
+    {
+      "name": "Features section (#features) visible at Mobile 375x812",
+      "detail": ""
+    },
+    {
+      "name": "Pricing section (#pricing) visible at Mobile 375x812",
+      "detail": ""
+    },
+    {
+      "name": "FAQ section (#faq) visible at Mobile 375x812",
+      "detail": ""
+    },
+    {
+      "name": "Final CTA section (#final-cta) visible at Mobile 375x812",
+      "detail": ""
+    },
+    {
+      "name": "Footer landmark (footer) visible at Mobile 375x812",
+      "detail": ""
+    },
+    {
+      "name": "Mobile navigation bar configured at Mobile 375x812",
+      "detail": "Toggle button visible, desktop nav links hidden"
+    },
+    {
+      "name": "Pricing cards layout correct (stacked) at Mobile 375x812",
+      "detail": ""
+    },
+    {
+      "name": "No horizontal overflow at Mobile 320x800",
+      "detail": "Width: 320px, Scroll: 320px"
+    },
+    {
+      "name": "Hero section (#hero) visible at Mobile 320x800",
+      "detail": ""
+    },
+    {
+      "name": "Workspace preview section (#interface) visible at Mobile 320x800",
+      "detail": ""
+    },
+    {
+      "name": "Features section (#features) visible at Mobile 320x800",
+      "detail": ""
+    },
+    {
+      "name": "Pricing section (#pricing) visible at Mobile 320x800",
+      "detail": ""
+    },
+    {
+      "name": "FAQ section (#faq) visible at Mobile 320x800",
+      "detail": ""
+    },
+    {
+      "name": "Final CTA section (#final-cta) visible at Mobile 320x800",
+      "detail": ""
+    },
+    {
+      "name": "Footer landmark (footer) visible at Mobile 320x800",
+      "detail": ""
+    },
+    {
+      "name": "Mobile navigation bar configured at Mobile 320x800",
+      "detail": "Toggle button visible, desktop nav links hidden"
+    },
+    {
+      "name": "Pricing cards layout correct (stacked) at Mobile 320x800",
+      "detail": ""
+    },
+    {
+      "name": "privacy.html no overflow on desktop (1440x900)",
+      "detail": ""
+    },
+    {
+      "name": "privacy.html contains working back-to-home link",
+      "detail": ""
+    },
+    {
+      "name": "privacy.html no overflow on mobile (375x812)",
+      "detail": ""
+    },
+    {
+      "name": "terms.html no overflow on desktop (1440x900)",
+      "detail": ""
+    },
+    {
+      "name": "terms.html contains working back-to-home link",
+      "detail": ""
+    },
+    {
+      "name": "terms.html no overflow on mobile (375x812)",
+      "detail": ""
+    },
+    {
+      "name": "Favicon referenced and returns HTTP 200",
+      "detail": "./favicon.svg"
+    },
+    {
+      "name": "Mobile menu is initially hidden",
+      "detail": ""
+    },
+    {
+      "name": "Mobile menu opened and aria-expanded is \"true\"",
+      "detail": ""
+    },
+    {
+      "name": "Mobile menu closed on Escape key",
+      "detail": ""
+    },
+    {
+      "name": "Focus restored to mobile menu toggle button",
+      "detail": ""
+    },
+    {
+      "name": "Initial tab is \"Board\" with aria-selected=\"true\"",
+      "detail": ""
+    },
+    {
+      "name": "Switched to \"Tasks\" tab: tasks panel visible, board hidden",
+      "detail": ""
+    },
+    {
+      "name": "ArrowRight switched to \"Automation\" tab with panel visible",
+      "detail": ""
+    },
+    {
+      "name": "ArrowLeft navigated back to \"Tasks\" tab",
+      "detail": ""
+    },
+    {
+      "name": "Switched back to \"Board\" tab",
+      "detail": ""
+    },
+    {
+      "name": "Task checkbox toggling updates progress percentage and bar width",
+      "detail": "4 of 6 deliverables completed (67%) -> 5 of 6 deliverables completed (83%)"
+    },
+    {
+      "name": "Default monthly prices are $12 for Pro and $24 for Team",
+      "detail": ""
+    },
+    {
+      "name": "Annual toggle updates prices to $10/user/mo ($120/yr) and $20/user/mo ($240/yr)",
+      "detail": ""
+    },
+    {
+      "name": "Annual savings notes explicitly displayed ($24/year for Pro, $48/year for Team)",
+      "detail": ""
+    },
+    {
+      "name": "Pricing toggle successfully returns to monthly rate ($12)",
+      "detail": ""
+    },
+    {
+      "name": "FAQ item 1 initially collapsed (aria-expanded=\"false\")",
+      "detail": ""
+    },
+    {
+      "name": "FAQ item 1 expanded successfully on click",
+      "detail": ""
+    },
+    {
+      "name": "FAQ item 1 collapsed successfully on second click",
+      "detail": ""
+    },
+    {
+      "name": "Hero CTA trigger opened #action-modal",
+      "detail": ""
+    },
+    {
+      "name": "Empty form submission properly displays validation errors for email, name, and terms",
+      "detail": ""
+    },
+    {
+      "name": "Malformed email correctly rejected by regex validation",
+      "detail": ""
+    },
+    {
+      "name": "Valid form displays honest demo success state with submitted email rendered safely",
+      "detail": ""
+    },
+    {
+      "name": "Modal closes on Escape key",
+      "detail": ""
+    },
+    {
+      "name": "Focus restored back to triggering button (#hero-cta-btn)",
+      "detail": ""
+    },
+    {
+      "name": "prefers-reduced-motion: reduce media query emulated successfully in browser",
+      "detail": ""
+    }
+  ],
+  "fixed": [],
+  "failed": [],
+  "notTested": [],
+  "evidence": [
+    "Chromium version: 156.0.8078.4",
+    "Screenshot: qa/screenshots/desktop-1440.png (Desktop 1440x900)",
+    "Screenshot: qa/screenshots/tablet-768.png (Tablet 768x1024)",
+    "Screenshot: qa/screenshots/mobile-375.png (Mobile 375x812)",
+    "Screenshot: qa/screenshots/mobile-320.png (Mobile 320x800)",
+    "Screenshot: qa/screenshots/privacy-desktop.png",
+    "Screenshot: qa/screenshots/privacy-mobile.png",
+    "Screenshot: qa/screenshots/terms-desktop.png",
+    "Screenshot: qa/screenshots/terms-mobile.png",
+    "Screenshot: qa/screenshots/mobile-menu-open.png",
+    "Screenshot: qa/screenshots/workspace-tab-board.png",
+    "Screenshot: qa/screenshots/workspace-tab-tasks.png",
+    "Screenshot: qa/screenshots/workspace-tab-automation.png",
+    "Screenshot: qa/screenshots/modal-open.png",
+    "Screenshot: qa/screenshots/modal-validation-error.png",
+    "Screenshot: qa/screenshots/modal-success.png"
+  ],
+  "consoleErrors": [],
+  "failedRequests": []
+}

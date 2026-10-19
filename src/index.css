@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  
+  --color-canvas: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-subtle: #f1f5f9;
+  --color-surface-hover: #e2e8f0;
+  --color-border: #e2e8f0;
+  --color-border-hover: #cbd5e1;
+  
+  --color-text-title: #0f172a;
+  --color-text-body: #334155;
+  --color-text-muted: #64748b;
+  
+  --color-brand: #0f766e;
+  --color-brand-hover: #115e59;
+  --color-brand-active: #134e4a;
+  --color-brand-light: #f0fdfa;
+  --color-brand-border: #99f6e4;
+  
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
+
+html {
+  font-family: var(--font-sans);
+  color: var(--color-text-body);
+  background-color: var(--color-canvas);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Accessible focus styling */
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Typography scale utilities */
+.font-tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Custom Accordion Grid Transition */
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accordion-content.is-open {
+  grid-template-rows: 1fr;
+}
+
+.accordion-inner {
+  overflow: hidden;
+}
+
+/* Modal styling */
+.modal-overlay {
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(2px);
+}
+
+/* Button & Link utilities with rectangular discipline */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 0.625rem 1.25rem;
+  background-color: var(--color-brand);
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-brand);
+  transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-brand-hover);
+  border-color: var(--color-brand-hover);
+}
+
+.btn-primary:active {
+  background-color: var(--color-brand-active);
+  border-color: var(--color-brand-active);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 0.625rem 1.25rem;
+  background-color: var(--color-surface);
+  color: var(--color-text-title);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-surface-subtle);
+  border-color: var(--color-border-hover);
+}
+
+.btn-secondary:active {
+  background-color: var(--color-surface-hover);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Card base */
+.card-base {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.card-base:hover {
+  border-color: var(--color-border-hover);
+}

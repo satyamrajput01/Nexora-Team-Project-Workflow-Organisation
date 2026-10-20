@@ -1,3 +1,4 @@
+import './index.css';
 /**
  * Nexora - Product Landing Page Interaction Engine
  * Semantic, accessible, vanilla TypeScript implementation.
